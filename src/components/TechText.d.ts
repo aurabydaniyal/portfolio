@@ -1,0 +1,33 @@
+import type { ComponentType, CSSProperties } from "react";
+
+declare const TechText: ComponentType<{
+  text?: string;
+  fontFamily?: string;
+  fontWeight?: number;
+  fontSize?: number;
+  letterSpacing?: number;
+  color?: string;
+  accentColor?: string;
+  align?: "left" | "center" | "right";
+  reach?: number;
+  softness?: number;
+  dashLength?: number;
+  dashGap?: number;
+  strokeWidth?: number;
+  lineStyle?: "dashed" | "solid";
+  reveal?: "letter" | "area" | "none";
+  specks?: number;
+  selection?: boolean;
+  labels?: boolean;
+  draggable?: boolean;
+  bounce?: number;
+  sweep?: boolean;
+  speed?: number;
+  clickKick?: boolean;
+  intro?: "none" | "type" | string;
+  introDuration?: number;
+  guides?: boolean;
+  className?: string;
+  style?: CSSProperties;
+}>;
+export default TechText;
