@@ -175,10 +175,10 @@ export default function IntroGate() {
         const iy = Math.max(0, (100 - box.height) / 2);
         frameRimRef.current.style.inset = `${iy.toFixed(2)}% ${ix.toFixed(2)}%`;
         frameRimRef.current.style.borderRadius = `${box.radius.toFixed(1)}px`;
-        frameRimRef.current.style.opacity = (1 - eased * 0.75).toFixed(3);
+        frameRimRef.current.style.opacity = (1 - eased * 0.85).toFixed(3);
       }
-      if (p > 0.62 && !expanded) setExpanded(true);
-      else if (p <= 0.62 && expanded) setExpanded(false);
+      if (p >= 0.88 && !expanded) setExpanded(true);
+      else if (p < 0.72 && expanded) setExpanded(false);
     },
     [expanded]
   );
@@ -187,6 +187,7 @@ export default function IntroGate() {
 
   const showStage = phase === "intro" || phase === "launching";
   const showFog = fogVisible || phase === "loading" || phase === "revealing";
+  const stageReady = expanded || phase === "launching";
 
   return (
     <div
@@ -264,8 +265,8 @@ export default function IntroGate() {
               {/* Sleek glass frame border tracking ScrollExpand */}
               <div ref={frameRimRef} className="intro-gate__frame-rim" aria-hidden="true" />
 
-              {/* 3D Orbiting Technical Skill Cards (all 12 skills) */}
-              <OrbitSkills ref={orbitRef} paused={false} />
+              {/* 3D Orbiting Technical Skill Cards — blooms into place once background expands */}
+              <OrbitSkills ref={orbitRef} paused={false} revealed={stageReady} />
 
               {/* Top-Right Theme Toggle */}
               <div className="intro-gate__topbar">
@@ -292,8 +293,8 @@ export default function IntroGate() {
                 </p>
               </div>
 
-              {/* Full-Screen FlyingButton Stage — button sits at bottom-right, flies up to top, and leaves its own WebGL smoke/fog trail */}
-              <div className="intro-gate__flying-stage">
+              {/* Full-Screen FlyingButton Stage — appears in smooth motion once background expands */}
+              <div className="intro-gate__flying-stage" data-visible={stageReady ? "true" : "false"}>
                 <FlyingButton
                   theme={isDark ? "dark" : "light"}
                   size={isMobile ? "medium" : "large"}
