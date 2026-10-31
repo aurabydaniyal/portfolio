@@ -28,11 +28,11 @@ export default function BackToTop() {
           maxPull={110}
           armAt={40}
           particles={8}
-          padColor="var(--lime)"
-          accentColor="var(--lime)"
-          iconColor="#071008"
-          wellColor="rgba(10, 16, 20, 0.55)"
-          bandColor="rgba(255, 255, 255, 0.35)"
+          padColor="var(--accent)"
+          accentColor="var(--accent)"
+          iconColor="var(--on-accent)"
+          wellColor="var(--fill-2)"
+          bandColor="var(--border-2)"
         />
       </span>
     </div>

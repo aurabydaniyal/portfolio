@@ -67,10 +67,10 @@ export default function HoldCopyEmail({ email }: { email: string }) {
         holdTime={1200}
         resetAfter={1800}
         fillDirection="right"
-        backgroundColor="rgba(255,255,255,0.06)"
-        fillColor="var(--lime)"
-        textColor="#f4f7fa"
-        fillTextColor="#0b0f06"
+        backgroundColor="var(--fill-2)"
+        fillColor="var(--accent)"
+        textColor="var(--text)"
+        fillTextColor="var(--on-accent)"
         doneLabel={doneLabel}
         onHold={copy}
         className="hold-copy__btn"

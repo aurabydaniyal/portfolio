@@ -1,4 +1,5 @@
 import Reveal from "@/components/ui/Reveal";
+import { EncryptedText } from "@/components/ui/encrypted-text";
 import { education, experience } from "@/data/experience";
 import type { TimelineEntry } from "@/types/portfolio";
 
@@ -23,7 +24,9 @@ export default function ExperienceSection() {
       <div className="container">
         <Reveal>
           <p className="eyebrow">05 — Background</p>
-          <h2 className="h-section">Experience &amp; education</h2>
+          <h2 className="h-section">
+            <EncryptedText text="Experience & education" revealDelayMs={50} encryptedClassName="enc-scramble" revealedClassName="enc-revealed" />
+          </h2>
         </Reveal>
         <Reveal>
           <div className="grid-2" style={{ marginTop: 40, gap: 56 }}>

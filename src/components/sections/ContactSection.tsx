@@ -1,5 +1,6 @@
 import Reveal from "@/components/ui/Reveal";
 import Glass from "@/components/ui/Glass";
+import { EncryptedText } from "@/components/ui/encrypted-text";
 import HoldCopyEmail from "@/components/ui/HoldCopyEmail";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/Icons";
 import { mailtoHref, siteConfig } from "@/data/site-config";
@@ -13,7 +14,9 @@ export default function ContactSection() {
           <Glass radius={28} className="contact-glass">
             <div className="contact-box">
               <p className="eyebrow">06 — Contact</p>
-              <h2 className="h-section">Have an idea worth building?</h2>
+              <h2 className="h-section">
+                <EncryptedText text="Have an idea worth building?" revealDelayMs={45} encryptedClassName="enc-scramble" revealedClassName="enc-revealed" />
+              </h2>
               <p className="lead" style={{ marginInline: "auto" }}>
                 Let&apos;s turn a practical problem into a thoughtful AI-powered product — AI applications, computer
                 vision, internships or software projects.

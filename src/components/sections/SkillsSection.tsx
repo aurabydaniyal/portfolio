@@ -1,4 +1,6 @@
 import Reveal from "@/components/ui/Reveal";
+import Tilt from "@/components/ui/Tilt";
+import { EncryptedText } from "@/components/ui/encrypted-text";
 import { foundations, skillCategories } from "@/data/skills";
 
 export default function SkillsSection() {
@@ -7,7 +9,9 @@ export default function SkillsSection() {
       <div className="container">
         <Reveal>
           <p className="eyebrow">02 — Stack</p>
-          <h2 className="h-section">Skills &amp; technology map</h2>
+          <h2 className="h-section">
+            <EncryptedText text="Skills & technology map" revealDelayMs={45} encryptedClassName="enc-scramble" revealedClassName="enc-revealed" />
+          </h2>
           <p className="lead">Grouped by domain, with a clear line between what I focus on and what I&apos;m still exploring.</p>
           <div className="legend" aria-label="Legend">
             <span><i className="p" />Primary focus</span>
@@ -18,6 +22,7 @@ export default function SkillsSection() {
         <div className="grid-2">
           {skillCategories.map((c, i) => (
             <Reveal key={c.id} delay={(i % 2) * 100}>
+              <Tilt max={5}>
               <article className="card skill-card" style={{ height: "100%" }}>
                 <h3>{c.title}</h3>
                 <p>{c.summary}</p>
@@ -33,6 +38,7 @@ export default function SkillsSection() {
                   <p className="more"><b>Also explored</b>{c.alsoExplored.join(" · ")}</p>
                 )}
               </article>
+              </Tilt>
             </Reveal>
           ))}
         </div>

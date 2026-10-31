@@ -1,20 +1,32 @@
 import { siteConfig } from "@/data/site-config";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/Icons";
+import { EncryptedText } from "@/components/ui/encrypted-text";
+import Tilt from "@/components/ui/Tilt";
 
 export default function HeroSection() {
   return (
     <section id="home" className="hero">
       <div className="container hero-grid">
         <div>
-          <p className="eyebrow">AI Engineering · Computer Vision · Full-Stack AI</p>
-          <h1>
+          <p className="hero-role hero-enter" style={{ ["--i" as string]: 0 }}>
+            <i aria-hidden="true" />
+            <EncryptedText
+              text={siteConfig.role}
+              revealDelayMs={28}
+              flipDelayMs={45}
+              encryptedClassName="enc-scramble"
+              revealedClassName="enc-revealed"
+            />
+          </p>
+          <p className="eyebrow hero-enter" style={{ ["--i" as string]: 1, marginTop: 18 }}>AI Engineering · Computer Vision · Full-Stack AI</p>
+          <h1 className="hero-enter" style={{ ["--i" as string]: 2 }}>
             Building AI into <span className="grad">useful products.</span>
           </h1>
-          <p className="lead">
+          <p className="lead hero-enter" style={{ ["--i" as string]: 3 }}>
             I build AI-powered applications combining LLMs, RAG, computer vision and modern web development — from
             Python APIs to interfaces people can actually use.
           </p>
-          <div className="cta-row">
+          <div className="cta-row hero-enter" style={{ ["--i" as string]: 4 }}>
             <a href="#work" className="btn btn-primary">Explore Projects →</a>
             <a href="#contact" className="btn">Get in Touch</a>
             {siteConfig.githubUrl && (
@@ -24,13 +36,15 @@ export default function HeroSection() {
               <a href={siteConfig.linkedinUrl} className="btn btn-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)"><LinkedInIcon /> LinkedIn</a>
             )}
           </div>
-          <ul className="chips" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+          <ul className="chips hero-enter" style={{ listStyle: "none", padding: 0, margin: 0, ["--i" as string]: 5 }}>
             {["AI APPLICATIONS", "COMPUTER VISION", "LLM + RAG", "FULL-STACK DEVELOPMENT"].map((c) => (
               <li key={c} className="chip">{c}</li>
             ))}
           </ul>
         </div>
 
+        <div className="hero-enter" style={{ ["--i" as string]: 3 }}>
+        <Tilt max={7}>
         <div className="window mono" role="img" aria-label="Illustrative graphic: computer-vision detection, OCR overlay, retrieval nodes and an API snippet. Not a real product screenshot.">
           <div className="window-bar">
             <i /><i /><i />
@@ -62,6 +76,8 @@ export default function HeroSection() {
             </div>
             <p className="illus-note">Illustrative graphic — not a live product.</p>
           </div>
+        </div>
+        </Tilt>
         </div>
       </div>
     </section>

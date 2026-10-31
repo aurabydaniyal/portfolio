@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { siteConfig } from "@/data/site-config";
 import NavName from "@/components/ui/NavName";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const icon = (d: string) => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -124,19 +125,22 @@ export default function Navbar() {
           </ul>
         </div>
 
-        {/* Mobile Hamburger Button */}
-        <button
-          ref={btnRef}
-          className="menu-btn"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="nav-dropdown"
-          onClick={() => setOpen((o) => !o)}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-            <path d={open ? "M6 6l12 12M18 6L6 18" : "M4 7h16M4 12h16M4 17h16"} />
-          </svg>
-        </button>
+        {/* Theme toggle + mobile hamburger */}
+        <div className="nav-actions">
+          <AnimatedThemeToggler className="theme-toggle" aria-label="Toggle light / dark theme" duration={550} />
+          <button
+            ref={btnRef}
+            className="menu-btn"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="nav-dropdown"
+            onClick={() => setOpen((o) => !o)}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <path d={open ? "M6 6l12 12M18 6L6 18" : "M4 7h16M4 12h16M4 17h16"} />
+            </svg>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Compact Dropdown (no screen takeover) */}

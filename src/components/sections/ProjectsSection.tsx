@@ -2,9 +2,12 @@ import Reveal from "@/components/ui/Reveal";
 import { projects } from "@/data/projects";
 import type { Project } from "@/types/portfolio";
 import Glass from "@/components/ui/Glass";
+import Tilt from "@/components/ui/Tilt";
+import { EncryptedText } from "@/components/ui/encrypted-text";
 
 function Card({ p }: { p: Project }) {
   return (
+    <Tilt>
     <Glass className="project-glass">
     <article className="project glass-pad">
       <div className="proj-top">
@@ -29,6 +32,7 @@ function Card({ p }: { p: Project }) {
       )}
     </article>
     </Glass>
+    </Tilt>
   );
 }
 
@@ -40,7 +44,9 @@ export default function ProjectsSection() {
       <div className="container">
         <Reveal>
           <p className="eyebrow">03 — Selected Work</p>
-          <h2 className="h-section">Projects</h2>
+          <h2 className="h-section">
+            <EncryptedText text="Projects" revealDelayMs={70} encryptedClassName="enc-scramble" revealedClassName="enc-revealed" />
+          </h2>
           <p className="lead">Every project carries an honest status label. Concepts are labeled as concepts.</p>
         </Reveal>
         <div className="grid-2" style={{ marginTop: 40 }}>
