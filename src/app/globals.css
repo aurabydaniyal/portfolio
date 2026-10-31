@@ -970,13 +970,13 @@ img, svg, canvas, video { max-width: 100%; }
 /* Full-screen FlyingButton stage so the button itself flies up to the top and leaves its WebGL smoke/fog trail */
 .intro-gate__flying-stage {
   position: absolute;
-  inset: 0 0 28px 0;
+  inset: 0 0 24px 0;
   width: 100%;
-  height: calc(100% - 28px);
+  height: calc(100% - 24px);
   z-index: 38;
   pointer-events: none;
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0);
   transition:
     opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.14s,
     transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.14s;
@@ -984,7 +984,7 @@ img, svg, canvas, video { max-width: 100%; }
 
 .intro-gate__flying-stage[data-visible="false"] {
   opacity: 0;
-  transform: translate3d(0, 28px, 0) scale(0.92);
+  transform: translate3d(0, 26px, 0);
   transition:
     opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);

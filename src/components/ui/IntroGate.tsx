@@ -307,7 +307,7 @@ export default function IntroGate() {
                   carryCursor={false}
                   doubleClick={false}
                   anchor="right"
-                  inset={isMobile ? 20 : 36}
+                  inset={isMobile ? 18 : 28}
                   smoke={1.9}
                   turbulence={1.25}
                   wobble={0.85}
@@ -319,7 +319,7 @@ export default function IntroGate() {
                 >
                   <span className="intro-gate__rocket-label">
                     <Rocket size={16} className="intro-gate__rocket-icon" aria-hidden="true" />
-                    <span>READY TO FLY</span>
+                    <span>Launch Portfolio</span>
                   </span>
                 </FlyingButton>
               </div>

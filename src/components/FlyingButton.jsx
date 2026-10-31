@@ -1094,7 +1094,7 @@ function createEngine({ root, canvas, button, cursor, ramp, props }) {
     s.H = Math.max(1, r.height);
     s.bw = button.offsetWidth;
     s.bh = button.offsetHeight;
-    if (!s.placed) {
+    if (s.phase === 'rest' || !s.placed) {
       s.x = home();
       s.placed = true;
     } else if (W0 > 0 && W0 !== s.W) s.x *= s.W / W0;
